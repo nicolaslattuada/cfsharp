@@ -5,6 +5,7 @@ T Read<T>() => (T)Convert.ChangeType(ReadLine(), typeof(T));
 int ReadInt() => Read<int>();
 string[] Split(char c = ' ') => ReadLine().Split(c);
 IEnumerable<T> Reads<T>(char c = ' ') => from s in Split() select (T)Convert.ChangeType(s, typeof(T));
+T[] ReadArray<T>(char c = ' ') => Reads<T>().ToArray();
 (T, T) ToTwoTuple<T>(IEnumerable<T> e) => (e.First(), e.ElementAt(1));
 (T, T) ReadTwo<T>(char c = ' ') => ToTwoTuple(Reads<T>(c));
 (T, T, T) ToThreeTuple<T>(IEnumerable<T> e) => (e.First(), e.ElementAt(1), e.ElementAt(2));
