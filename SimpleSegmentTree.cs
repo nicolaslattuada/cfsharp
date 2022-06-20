@@ -16,7 +16,7 @@ void Write<T>(T s) => writer.Write(s);
 void WriteLine<T>(T s) => writer.WriteLine(s);
 
 // Segment Tree
-static void build(int[] A, int[] T)
+void build(int[] A, int[] T)
 {
     int n = A.Length;
     for (int i = 0; i < n; i++)
@@ -25,7 +25,7 @@ static void build(int[] A, int[] T)
         T[i] = T[2 * i]+T[2 * i + 1];
 }
 
-static void update(int[] T, int pos, int value)
+void update(int[] T, int pos, int value)
 {
     int n = T.Length / 2;
     pos += n;
@@ -37,7 +37,7 @@ static void update(int[] T, int pos, int value)
     }
 }
 
-static int query(int[] T, int left, int right)
+int query(int[] T, int left, int right)
 {
     int n = T.Length / 2;
     left += n;
