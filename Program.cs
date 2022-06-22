@@ -1,4 +1,10 @@
-StreamReader reader = new StreamReader(Console.OpenStandardInput());
+string fileName = "input.txt";
+StreamReader reader;
+if (File.Exists(fileName)) {
+    reader = new StreamReader(fileName);
+} else {
+    reader = new StreamReader(Console.OpenStandardInput());
+}
 StreamWriter writer = new StreamWriter(Console.OpenStandardOutput());
 string ReadLine() => reader.ReadLine()!;
 T Read<T>() => (T)Convert.ChangeType(ReadLine(), typeof(T));
