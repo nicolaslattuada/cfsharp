@@ -1,6 +1,10 @@
+using System.Numerics;
+using System.Text;
+
 StreamReader reader = new StreamReader(Console.OpenStandardInput());
 if (File.Exists("input.txt")) reader = new StreamReader("input.txt");
 StreamWriter writer = new StreamWriter(Console.OpenStandardOutput());
+// if (File.Exists("output.txt")) writer = new StreamWriter("output.txt");
 string ReadLine() => reader.ReadLine()!;
 T Read<T>() => (T)Convert.ChangeType(ReadLine(), typeof(T));
 int ReadInt() => Read<int>();
@@ -17,11 +21,17 @@ void WriteLine<T>(T s) => writer.WriteLine(s);
 var t = ReadInt();
 while (t-- > 0)
 {
-    var a = Reads<int>();
-    foreach (var i in a)
+    var n = ReadInt();
+    var value = Read<string>();
+    StringBuilder sb = new();
+    var append = '9';
+    if (value[0] == '9')
     {
-        WriteLine($"value was {i}");
+        n++;
+        append = '1';
     }
+    for (int i = 0; i < n; i++) sb.Append(append);
+    WriteLine(BigInteger.Parse(sb.ToString()) - BigInteger.Parse(value));
 }
 writer.Flush();
 
